@@ -1,0 +1,56 @@
+/* Estilos CSS para a página */
+.hidden {
+    display: none;
+  }
+
+  body {
+    background-image: url('fundo.aria.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  /* Estilos da figura */
+  .figura {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 900px;
+    margin-bottom: 50px;
+  }
+  
+  .figura img {
+    display: block;
+    margin: auto;
+    width: 100%;  
+  }
+  
+  /* Estilos para os containers com seções de texto */
+  .container {
+    margin-bottom: 20px;
+  }
+  
+
+  h1 {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(110, 94, 189);
+    font-size: 80px;
+    margin-top: 40px;
+    line-height: 1; /* Adicionando a propriedade line-height e ajustando para 1 */
+  }
+
+  #sla {
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(43, 31, 105);
+    font-size: 20px;
+    margin-top: -1px;
+    line-height: 1; /* Adicionando a propriedade line-height e ajustando para 1 */
+
+  }
+  

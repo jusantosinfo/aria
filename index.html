@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Página Acessível com ARIA</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .container {
+      text-align: center;
+    }
+    /* Estilos para o botão */
+    button {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: rgb(110, 94, 189); /* Cor de fundo */
+      color:#FFF1EE; /* Cor do texto */
+      padding: 30px 140px; /* Espaçamento interno */
+      font-size: 16px; /* Tamanho da fonte */
+      border: 20px solid #FFF1EE; /* Borda sólida de 2px */
+      border-radius: 20px; /* Borda arredondada */
+      cursor: pointer; /* Cursor de apontar */
+      transition: background-color 0.3s; /* Transição de cor de fundo */
+      margin-top: -10px; /* Espaçamento superior */
+      font-weight: bold; /* Texto em negrito */
+    }
+    /* Estilo hover para o botão */
+    button:hover {
+      background-color: rgb(92, 78, 160); /* Cor de fundo ao passar o mouse */
+    }
+    .div-azul {
+      margin-top: -70px;
+      background-color: rgb(231, 231, 231);
+      padding: 130px;
+      margin-bottom: 10px;
+      font-family: Arial, sans-serif; /* Definindo uma fonte melhor */
+      color: rgb(110, 94, 189); /* Texto branco para melhor contraste */
+      text-align: justify; /* Alinhamento justificado */
+      max-width: 1200px;
+      font-size: 18px; /* Tamanho do texto aumentado para 18px */
+      transition: max-height 0.5s ease; /* Transição de altura máxima */
+      max-height: 0; /* Altura inicialmente oculta */
+      overflow: hidden; /* Oculta o conteúdo que ultrapassa a altura máxima */
+      border-radius: 30px;
+    }
+    .div-rosa {
+      background-color: pink;
+      padding: 10px; /* Ajuste conforme necessário */
+      border-radius: 10px; /* Borda arredondada */
+      margin-top: 10px; /* Espaçamento superior */
+      text-align: center; /* Centraliza o texto dentro da div */
+      width: 300px; /* Largura da div rosa */
+      margin: 0 auto; /* Centraliza horizontalmente */
+    }
+
+    /* Centraliza o select dentro da div rosa */
+ /* Adicione este bloco de estilos ao seu CSS */
+
+#selecao {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Altera a fonte */
+  color: purple; /* Cor do texto roxo */
+  background-color: #fff; /* Cor de fundo */
+  padding: 10px; /* Espaçamento interno */
+  font-size: 14px; /* Tamanho da fonte */
+  border: 1px solid #ccc; /* Borda sólida */
+  border-radius: 5px; /* Borda arredondada */
+  outline: none; /* Remove a borda de foco padrão */
+  transition: border-color 0.3s, box-shadow 0.3s; /* Adiciona transição para uma mudança suave */
+}
+
+#selecao option {
+  background-color: #fff; /* Cor de fundo */
+  color: purple; /* Cor do texto roxo */
+  padding: 10px; /* Espaçamento interno */
+  font-size: 14px; /* Tamanho da fonte */
+  border: 1px solid #ccc; /* Borda sólida */
+}
+
+#selecao option:hover {
+  color:#4e4d8d;
+}
+
+
+#selecao:hover {
+  border: 1px solid #ff0; /* Borda amarela ao passar o mouse */
+  box-shadow: 0 0 5px rgba(255, 255, 0, 0.5); /* Sombra amarela ao passar o mouse */
+}
+
+#selecao:focus {
+  border: 1px solid #555; /* Borda quando está em foco */
+  box-shadow: 0 0 5px rgba(85, 85, 85, 0.5); /* Sombra quando está em foco */
+}
+
+    
+    
+    .container:not(.hidden) .div-azul {
+      max-height: 1000px; /* Altura máxima para mostrar a div */
+    }
+    /* Estilos para a frase "Facilita a navegação para pessoas com deficiência motora:" */
+    .destaque {
+      font-size: 20px; /* Tamanho da fonte aumentado */
+      color: #4e4d8d; /* Cor vermelha */
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PÁGINA ACESSÍVEL <br>COM ARIA</h1>
+
+  <h2 id="sla">Exemplo de página acessível com ARIA:</h2> 
+
+  <!-- Imagem-->
+  <div class="figura">
+    <img src="aria.png" alt="Imagem ARIA">
+  </div>
+
+  <!-- Containers com Seções de Texto -->
+  <div class="container">
+    <button onclick="toggleVisibility('section1')">Mostrar/Ocultar Seção 1</button>
+    <div id="section1" class="hidden div-azul">
+      <h2><center>Seção 1</center></h2>
+      <p>Um acordeão é como uma lista de pastas empilhadas verticalmente. Cada "pasta" tem um 
+        título ou uma pequena prévia do que está dentro dela. Quando você clica em uma "pasta",
+         ela se abre para revelar o que está dentro, e você pode fechá-la novamente se quiser. 
+         Os acordeões são úteis porque ajudam a organizar muitas informações em uma página sem
+          que você precise rolar muito.</p>
+
+          <p>A opção "mostrar/ocultar itens" é importante na acessibilidade por várias razões: <br><br>
+
+            <span class="destaque">• Facilita a navegação para pessoas com deficiência motora:</span> Algumas pessoas podem ter dificuldades em percorrer grandes quantidades de conteúdo. Ao permitir que itens sejam ocultados, você reduz a quantidade de rolagem necessária para encontrar informações importantes.<br>
+            <br><br>
+            <span class="destaque">•Melhora a experiência para pessoas com deficiência visual:</span> Para usuários de leitores de tela ou outras tecnologias assistivas, apresentar todo o conteúdo de uma vez pode ser avassalador e difícil de navegar. A opção de mostrar/ocultar permite uma exploração mais fácil e organizada do conteúdo.<br>
+            <br><br>
+            <span class="destaque"> •Reduz a sobrecarga cognitiva:</span> Algumas pessoas podem sentir-se sobrecarregadas quando confrontadas com muitas informações simultaneamente. Ao permitir que itens sejam ocultados, você ajuda a reduzir essa carga cognitiva, permitindo que os usuários foquem em partes específicas do conteúdo de cada vez.<br>
+            <br><br>
+            <span class="destaque">• Aumenta a flexibilidade de personalização:</span> Usuários com diferentes preferências de navegação podem se beneficiar da capacidade de controlar quais itens são exibidos ou ocultos. Isso permite uma experiência mais personalizada e adaptada às necessidades individuais de cada usuário.<br>
+            <br><br>
+            Portanto, oferecer a opção de mostrar/ocultar itens é uma prática importante para garantir que seu conteúdo seja acessível a uma ampla gama de usuários, independentemente de suas habilidades ou preferências de navegação.</p>
+   <center><img src="acessibilidade.png" width="700px" margin-top="-30px"></center>
+    
+          </div>
+
+
+  </div>
+
+  <div class="container">
+    <button onclick="toggleVisibility('section2')">Mostrar/Ocultar Seção 2</button>
+    <div id="section2" class="hidden div-azul">
+      <h2><center>Seção 2</center></h2>
+      <p>
+        WAI-ARIA suporta dois tipos de widgets de checkbox: checkboxes de dois estados alternam 
+        entre duas escolhas -- marcado e não marcado -- e checkboxes de três estados, 
+        que permitem um terceiro estado adicional conhecido como parcialmente marcado.
+        
+        Um uso comum de um checkbox de três estados pode ser encontrado em instaladores de 
+        software, onde um único checkbox de três estados é usado para representar e controlar 
+        o estado de um grupo inteiro de opções de instalação. E cada opção no grupo 
+        pode ser individualmente ligada ou desligada com um checkbox de dois estados.</p>
+
+       
+       
+       <p>Opção para caixa de "seleção/itens" é importante na acessibilidade por várias razões: </p>
+      <p><span class="destaque"> •Acessibilidade para usuários com deficiência visual:</span> O uso de opções para caixas de seleção 
+        e itens em sites facilita a navegação para usuários com deficiência visual que utilizam leitores de tela. Os elementos de seleção clara 
+        e a capacidade de navegar rapidamente entre as opções tornam a experiência mais amigável e compreensível.<br><br>
+
+        <span class="destaque">•Compatibilidade com teclado:</span> Muitos usuários preferem ou dependem do uso do teclado em vez do mouse.
+         O uso de opções para caixas de seleção permite uma navegação mais fácil e eficiente usando apenas o teclado, melhorando a acessibilidade para esse público.<br><br>
+        
+          <span class="destaque">•Contraste e visibilidade:</span> O design de opções para caixas de seleção pode ser adaptado para fornecer bom contraste visual,
+           facilitando a identificação das opções. Isso é crucial para usuários com baixa visão ou dificuldades de leitura, contribuindo para uma experiência mais acessível.<br><br>
+        
+           <span class="destaque">•Facilidade de implementação de feedback:</span> Ao selecionar uma opção, muitas interfaces oferecem feedback visual ou auditivo imediato. Esse 
+           recurso é benéfico para usuários com diferentes habilidades, proporcionando uma experiência mais interativa e informando sobre a ação realizada.<br><br>
+        
+           <span class="destaque">•Compatibilidade com tecnologias assistivas:</span> uso de opções para caixas de seleção é amplamente suportado por tecnologias assistivas, como leitores de tela, 
+            de tela e outros dispositivos. Isso significa que os usuários que dependem dessas tecnologias terão uma experiência mais suave e consistente ao interagir com caixas de seleção em sites.<br><br></p>
+       <p><center>Exemplo:</center></p>
+       <div class="div-rosa">
+        <label for="selecao">Selecione uma opção:</label>
+        <select id="selecao">
+          <option value="item1">Item 1</option>
+          <option value="item2">Item 2</option>
+          <option value="item3">Item 3</option>
+          <option value="item4">Item 4</option>
+          <option value="item5">Item 5</option>
+        </select>
+      </div>
+      <!-- Fim da nova div rosa -->
+
+    </div>
+  </div>
+
+  <div class="container">
+    <button onclick="toggleVisibility('section3')">Mostrar/Ocultar Seção 3</button>
+    <div id="section3" class="hidden div-azul">
+      <h2><center>Seção 3</center></h2>
+      <p>Um alerta é um elemento que exibe uma mensagem breve e importante de uma maneira que chama a atenção do usuário sem interromper a tarefa do usuário. Alertas renderizados dinamicamente são anunciados automaticamente pela maioria dos leitores de tela, e em alguns sistemas operacionais, podem acionar um som de alerta. É importante observar que, neste momento, os leitores de tela não 
+        informam aos usuários sobre alertas que estão presentes na página antes que o carregamento da página seja 
+        concluído.</p>
+        <p>Há diversos motivos para usar alertas para melhorar a acessibilidade 
+          em uma aplicação web. Aqui estão dois desses motivos:</p>
+          <p><span class="destaque">•Atração de Atenção Sem Interrupção:</span> Alertas fornecem uma maneira eficaz de chamar a atenção do usuário para informações importantes sem interromper completamente a tarefa 
+            em andamento. Eles são particularmente úteis para mensagens urgentes ou críticas que exigem ação imediata do usuário.</p>
+    
+            <p><span class="destaque">•Anúncio Automático por Leitores de Tela: </span>Os alertas são dinamicamente renderizados e geralmente são automaticamente anunciados por leitores de tela, garantindo que usuários com deficiência visual sejam informados sobre mensagens cruciais. Isso contribui para uma experiência mais 
+              inclusiva, permitindo que todos os usuários, independentemente de suas habilidades, acessem informações importantes.<br><br>
+
+
+              <p>Um botão é um elemento que permite aos usuários acionar uma ação ou evento, como enviar um formulário, abrir uma caixa de diálogo, cancelar uma ação ou realizar uma operação de exclusão. Uma convenção comum para informar aos usuários
+                 que um botão inicia uma caixa de diálogo é adicionar "…" (reticências) ao rótulo do botão, 
+                 por exemplo, "Salvar como…".</p>
+
+                 <p><span class="destaque">•Clareza na Interação:</span>Adicionar "..." ao rótulo de um botão que lança uma caixa de diálogo fornece uma dica visual clara aos usuários sobre a natureza da ação. Isso ajuda especialmente aqueles que utilizam 
+                  tecnologias assistivas, como leitores de tela, a entenderem melhor a função do botão, melhorando a clareza na
+                   interação.</p>
+                   <p><span class="destaque">•Facilitação da Exploração:</span>Para usuários com deficiências visuais ou aqueles que dependem de métodos de navegação alternativos, a adição de "..." ao rótulo do botão pode facilitar a exploração e compreensão do conteúdo da interface. Essa prática contribui para uma experiência mais acessível, permitindo
+                     que os usuários identifiquem facilmente botões associados a ações específicas, como a abertura de uma caixa de 
+                     diálogo.</p>
+          </div>
+  </div>
+
+  <script>
+    function toggleVisibility(id) {
+      var section = document.getElementById(id);
+      section.classList.toggle("hidden");
+    }
+  </script>
+</body>
+</html>
